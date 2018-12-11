@@ -1,0 +1,50 @@
+<%= form_with(model: history, local: true) do |form| %>
+  <% if history.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(history.errors.count, "error") %> prohibited this history from being saved:</h2>
+      <ul>
+      <% history.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <p>Dia </p>
+    <%= form.date_select :today %>
+  </div>
+
+  <div class="field">
+    <p>Primeira Entrada </p>
+    <%= form.time_select :first_entry %>
+  </div>
+
+  <div class="field">
+    <p>Primeira Saída </p>
+    <%= form.time_select :first_exist %>
+  </div>
+
+  <div class="field">
+    <p>Segunda Entrada </p>
+    <%= form.time_select :second_entry %>
+  </div>
+
+  <div class="field">
+    <p>Segunda Saída </p>
+    <%= form.time_select :second_exist %>
+  </div>
+
+  <div class="field">
+    <p>Total de Horas </p>
+    <%= form.time_select :total %>
+  </div>
+
+  <div class="field">
+    <p>Observações </p>
+    <%= form.text_area :comment %>
+  </div>
+
+    <%= form.submit "Ok", class: "btn btn-outline-success btn-lg btn-block" %>
+    <br>
+<% end %>

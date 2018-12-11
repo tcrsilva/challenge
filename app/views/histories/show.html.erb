@@ -1,0 +1,41 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Dia: </strong>
+  <%= @history.today.strftime("%D") %>
+</p>
+
+<p>
+  <strong>Entrada 1: </strong>
+  <%= @history.first_entry.strftime("%H:%M") %>
+</p>
+
+<p>
+  <strong>Saída 1: </strong>
+  <%= @history.first_exist.strftime("%H:%M") %>
+</p>
+
+<p>
+  <strong>Entrada 2: </strong>
+  <%= @history.second_entry.strftime("%H:%M") %>
+</p>
+
+<p>
+  <strong>Saída 2: </strong>
+  <%= @history.second_exist.strftime("%H:%M") %>
+</p>
+
+<p>
+  <strong>Total: </strong>
+  <%= @history.total.strftime("%H:%M") %>
+</p>
+
+<p>
+  <strong>Observações: </strong>
+  <%= @history.comment %>
+</p>
+
+<br>
+<%= link_to 'Editar', edit_history_path(@history), class: "btn btn-primary btn-lg btn-block" %> 
+<%= link_to 'Voltar', histories_path, class: "btn btn-secondary btn-lg btn-block" %>
+

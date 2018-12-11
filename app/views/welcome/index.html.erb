@@ -1,0 +1,47 @@
+<head>
+    <script type="text/javascript">
+    var jsclock={
+    	padfield:function(f){
+	    	return (f<10)? "0"+f : f
+	    },
+	    showcurrenttime:function(){
+    	    var dateobj=new Date()
+    	    var ct=this.padfield(dateobj.getHours())+":"+this.padfield(dateobj.getMinutes())+":"+this.padfield(dateobj.getSeconds())
+    	    this.ctref.innerHTML=ct
+    	    this.ctref.setAttribute("title", ct)
+	    },
+	    init:function(){
+	    var dateobj=new Date()
+    	    this.ctref=document.getElementById("js_ct")
+    	    var selections=document.getElementsByTagName("span")
+    	    this.hourselect=selections[0]
+	   	    this.minuteselect=selections[1]
+	   	    this.secondselect=selections[2]
+	   	    for (var i=0; i<60; i++){
+    			if (i<24) //If still within range of hours field: 0-23
+	    		this.hourselect[i]=new Option(this.padfield(i), this.padfield(i), false, dateobj.getHours()==i)
+	   	    	this.minuteselect[i]=new Option(this.padfield(i), this.padfield(i), false, dateobj.getMinutes()==i)
+	    	    this.secondselect[i]=new Option(this.padfield(i), this.padfield(i), false, dateobj.getSeconds()==i)
+    	    }
+    	    jsclock.showcurrenttime()
+    	    jsclock.timer=setInterval(function(){jsclock.showcurrenttime()}, 1000)
+	    }
+    }
+    </script>
+</head>
+<body>
+<div class="jumbotron">
+    <h1 class="display-4">Bem Vindo!</h1>
+    <div id="clock">
+        <!-- <= @time %> -->
+        <span id="js_ct" style="letter-spacing: 2px"></span>
+        <span></span><span></span><span></span>
+        <span></span>
+    </div>
+    <%= link_to 'Registrar Horário', new_history_path, class:"btn btn-primary" %>
+    <%= link_to 'Ver Histórico', histories_path, class:"btn btn-primary" %>
+</div>
+    <script type="text/javascript">
+        jsclock.init()
+    </script>
+</body>

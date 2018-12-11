@@ -1,0 +1,9 @@
+pt-BR:
+activerecord:
+    models:
+      history: Histórico
+    attributes:
+      history:
+        date: Data
+        time: Hora
+        

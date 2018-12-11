@@ -1,0 +1,43 @@
+<p id="notice"><%= notice %></p>
+
+<h1 class="display-4">Histórico de Horários</h1>
+
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th scope="col">Dia</th>
+      <th scope="col">Entrada 1</th>
+      <th scope="col">Saída 1</th>
+      <th scope="col">Entrada 2</th>
+      <th scope="col">Saída 2</th>
+      <th scope="col">Total</th>
+      <th scope="col">Observações</th>
+      <th scope="col">Localização</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @histories.each do |history| %>
+      <tr>
+        <td scope="row"><%= history.today.strftime("%D") %></td>
+        <td><%= history.first_entry.strftime("%H:%M") %></td>
+        <td><%= history.first_exist.strftime("%H:%M") %></td>
+        <td><%= history.second_entry.strftime("%H:%M") %></td>
+        <td><%= history.second_exist.strftime("%H:%M") %></td>
+        <td><%= history.total.strftime("%H:%M") %></td>
+        <td><%= history.comment %></td>
+        <td></td>
+        
+        <td><%= link_to 'Ver', history %></td>
+        <td><%= link_to 'Editar', edit_history_path(history) %></td>
+        <td><%= link_to 'Excluir', history, method: :delete, data: { confirm: 'Tem certeza?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'Adicionar Horário', new_history_path, class: "btn btn-primary btn-lg btn-block" %>
+<%= link_to 'Voltar', root_path, class:"btn btn-secondary btn-lg btn-block" %>
