@@ -1,3 +1,36 @@
+<button onclick="getLocation()" class="btn btn-danger" style="margin:15px;">Ative a Localização</button>
+<p id="info"></p>
+<script>
+    var x=document.getElementById("info");
+    var lat;
+    var long;
+    function getLocation()
+    {
+        if (navigator.geolocation)
+        {
+            navigator.geolocation.getCurrentPosition(showPosition);
+
+        }
+        else{x.innerHTML="Geolocation is not supported by this browser.";}
+    }
+    function showPosition(position)
+    {
+        lat = position.coords.latitude;
+        long = position.coords.longitude;
+        x.innerHTML="Latitude: " + lat +
+                "<br>Longitude: " + long;
+
+        $.ajax({
+            type: 'POST',
+            url: 'histories/create.js.erb',
+            data: { lat: lat, long: long },
+            contentType: 'application/json',
+            dataType: 'json'
+
+        });
+    }
+</script>
+
 <%= form_with(model: history, local: true) do |form| %>
   <% if history.errors.any? %>
     <div id="error_explanation">
@@ -9,7 +42,7 @@
       </ul>
     </div>
   <% end %>
-
+  
   <div class="field">
     <p>Dia </p>
     <%= form.date_select :today %>

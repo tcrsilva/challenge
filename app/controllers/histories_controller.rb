@@ -44,9 +44,11 @@ class HistoriesController < ApplicationController
       if @history.update(history_params)
         format.html { redirect_to @history, notice: 'Horário atualizado com sucesso!' }
         format.json { render :show, status: :ok, location: @history }
+        format.js
       else
         format.html { render :edit }
         format.json { render json: @history.errors, status: :unprocessable_entity }
+        format.js #views/users/create.js.erb
       end
     end
   end
