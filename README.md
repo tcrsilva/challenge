@@ -2,16 +2,17 @@
 The timetracking challenge
 
 ## Getting Started
-It's an application in Ruby on Rails for tracking the time at which an employee presses the "checkin" button.
-Has been desenvolved for a personal developer avaliation. The production enviroment was the virtual machine c9.io of Amazon.
+It's an application in Ruby on Rails for tracking the time at which an employee presses the "checkin" button. Has been desenvolved for a personal developer avaliation. The production enviroment was the virtual machine c9.io of Amazon.
+
+I had made an clock that updates every second, one scaffold to make the registers of the time/details and an button to catch the geolocalization.
 
 ### Prerequisites
 It must has installed the Ruby language and On Rails framework.
 
 ```
-Install ruby
+install ruby
 ```
-
+And
 ```
 gem install rails
 ```
