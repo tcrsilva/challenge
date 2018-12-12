@@ -1,24 +1,48 @@
-# README
+# CHALLENGE 
+The timetracking challenge
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Getting Started
+It's an application in Ruby on Rails for tracking the time at which an employee presses the "checkin" button.
+Has been desenvolved for a personal developer avaliation. The production enviroment was the virtual machine c9.io of Amazon.
 
-Things you may want to cover:
+### Prerequisites
+It must has installed the Ruby language and On Rails framework.
 
-* Ruby version
+```
+Install ruby
+```
 
-* System dependencies
+```
+gem install rails
+```
 
-* Configuration
+## Running the tests
+The model test was made by RSpec, so for checking it use:
 
-* Database creation
+```
+rake spec
+```
 
-* Database initialization
+## Deployment
 
-* How to run the test suite
+* Github (https://github.com/tcrsilva/challenge)
 
-* Services (job queues, cache servers, search engines, etc.)
+At C9 use:
+```
+rails server -p $PORT -b $IP
+```
 
-* Deployment instructions
+## Built With
 
-* ...
+- Ruby Language
+- Framework On Rails
+- SQlite 3
+- HTML5 and CSS3
+- Bootstrap
+- JQuery
+- JavaScript
+
+## Author
+
+* **Tais Silva**
+https://github.com/tcrsilva
