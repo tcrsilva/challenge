@@ -23,6 +23,8 @@ The model test was made by RSpec, so for checking it use:
 ```
 rake spec
 ```
+## IDE
+Virtual Machine - AWS c9
 
 ## Deployment
 
